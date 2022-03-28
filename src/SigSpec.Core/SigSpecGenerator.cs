@@ -118,6 +118,9 @@ namespace SigSpec.Core
                         p.Description = arg.GetXmlDocs();
                     });
 
+                var contextualParameter = arg.ToContextualParameter();
+                parameter.Optional = contextualParameter.Nullability == Nullability.Nullable;
+
                 operation.Parameters[arg.Name] = parameter;
             }
 

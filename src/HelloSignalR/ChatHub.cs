@@ -28,6 +28,16 @@ namespace HelloSignalR
             // TODO: Write events
             return channel.Reader;
         }
+
+        public Task SendOptional(string? optionalMessage)
+        {
+            if (optionalMessage == null)
+            {
+                return Clients.All.Welcome();
+            }
+
+            return Clients.All.Send(optionalMessage);
+        }
     }
 
     public class Event

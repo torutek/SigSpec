@@ -4,10 +4,10 @@
 {%     if operation.IsObservable -%}
     {% comment %}For the moment don't handle streams{% endcomment %}
 {%     elsif operation.HasReturnType -%}
-        public Task<{{ operation.ReturnType.Type }}> {{ operation.Name }}({% for parameter in operation.Parameters %}{{ parameter.Type }} {{ parameter.Name }}, {% endfor %}CancellationToken token = default(CancellationToken));
+        public Task<{{ operation.ReturnType.Type }}> {{ operation.Name }}({% for parameter in operation.Parameters %}{{ parameter.Type }}{% if parameter.Optional == true %}?{% endif %} {{ parameter.Name }}, {% endfor %}CancellationToken token = default(CancellationToken));
 
 {%     else -%}
-        public Task {{ operation.Name }}({% for parameter in operation.Parameters %}{{ parameter.Type }} {{ parameter.Name }}, {% endfor %}CancellationToken token = default(CancellationToken));
+        public Task {{ operation.Name }}({% for parameter in operation.Parameters %}{{ parameter.Type }}{% if parameter.Optional == true %}?{% endif %} {{ parameter.Name }}, {% endfor %}CancellationToken token = default(CancellationToken));
 
 {%     endif -%}
 {% endfor -%}
@@ -16,7 +16,7 @@
     public interface I{{ Name }}ClientMethods
     {
 {% for operation in Callbacks -%}
-        public Task On{{ operation.Name }}({% for parameter in operation.Parameters %}{{ parameter.Type }} {{ parameter.Name }}{% if forloop.last == false %}, {% endif %}{% endfor %});
+        public Task On{{ operation.Name }}({% for parameter in operation.Parameters %}{{ parameter.Type }}{% if parameter.Optional == true %}?{% endif %} {{ parameter.Name }}{% if forloop.last == false %}, {% endif %}{% endfor %});
 
 {% endfor -%}
     }
@@ -63,13 +63,13 @@
 {%     if operation.IsObservable -%}
     {% comment %}For the moment don't handle streams{% endcomment %}
 {%     elsif operation.HasReturnType -%}
-        public async Task<{{ operation.ReturnType.Type }}> {{ operation.Name }}({% for parameter in operation.Parameters %}{{ parameter.Type }} {{ parameter.Name }}, {% endfor %}CancellationToken token = default(CancellationToken))
+        public async Task<{{ operation.ReturnType.Type }}> {{ operation.Name }}({% for parameter in operation.Parameters %}{{ parameter.Type }}{% if parameter.Optional == true %}?{% endif %} {{ parameter.Name }}, {% endfor %}CancellationToken token = default(CancellationToken))
         {
             return await _connection.InvokeAsync("{{ operation.Name }}"{% for parameter in operation.Parameters %}, {{ parameter.Name }}{% endfor %}, token);
         }
 
 {%     else -%}
-        public async Task {{ operation.Name }}({% for parameter in operation.Parameters %}{{ parameter.Type }} {{ parameter.Name }}, {% endfor %}CancellationToken token = default(CancellationToken))
+        public async Task {{ operation.Name }}({% for parameter in operation.Parameters %}{{ parameter.Type }}{% if parameter.Optional == true %}?{% endif %} {{ parameter.Name }}, {% endfor %}CancellationToken token = default(CancellationToken))
         {
             await _connection.InvokeAsync("{{ operation.Name }}"{% for parameter in operation.Parameters %}, {{ parameter.Name }}{% endfor %}, token);
         }
