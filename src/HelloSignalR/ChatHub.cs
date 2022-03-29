@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Channels;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.SignalR;
@@ -5,6 +6,12 @@ using Newtonsoft.Json;
 
 namespace HelloSignalR
 {
+    public struct ChatStruct
+    {
+        public string Message;
+        public bool SendToAll;
+    }
+
     public class ChatHub : Hub<IChatClient>
     {
         public Task Send(string message)
@@ -37,6 +44,19 @@ namespace HelloSignalR
             }
 
             return Clients.All.Send(optionalMessage);
+        }
+
+        public Task SendNullableStruct(Nullable<ChatStruct> chatStruct)
+        {
+            if (chatStruct.HasValue)
+            {
+                if (chatStruct.Value.SendToAll)
+                {
+                    return Clients.All.Send(chatStruct.Value.Message);
+                }
+            }
+
+            return Task.CompletedTask;
         }
     }
 
