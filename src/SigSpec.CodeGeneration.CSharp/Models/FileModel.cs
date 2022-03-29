@@ -12,5 +12,7 @@ namespace SigSpec.CodeGeneration.CSharp.Models
         public string Namespace { get; set; }
 
         public IEnumerable<string> Hubs { get; }
+
+        public bool EnableNullable { get; set; }
     }
 }
