@@ -25,7 +25,10 @@ namespace SigSpec.CodeGeneration.CSharp
             var artifacts = new List<CodeArtifact>();
             foreach (var hub in document.Hubs)
             {
-                var hubModel = new HubModel(hub.Key, hub.Value, resolver);
+                var hubModel = new HubModel(hub.Key, hub.Value, resolver)
+                {
+                    EnableNullable = _settings.CSharpGeneratorSettings.GenerateNullableReferenceTypes
+                };
                 var template = _settings.CSharpGeneratorSettings.TemplateFactory.CreateTemplate("CSharp", "Hub", hubModel);
                 artifacts.Add(new CodeArtifact(hubModel.Name, CodeArtifactType.Class, CodeArtifactLanguage.CSharp, CodeArtifactCategory.Client, template.Render()));
             }
@@ -49,7 +52,7 @@ namespace SigSpec.CodeGeneration.CSharp
 
             var fileModel = new FileModel(artifacts.Select(a => a.Code), _settings.CSharpGeneratorSettings.Namespace)
             {
-                EnableNullable = _settings.EnableNullable
+                EnableNullable = _settings.CSharpGeneratorSettings.GenerateNullableReferenceTypes
             };
             var fileTemplate = _settings.CSharpGeneratorSettings.TemplateFactory.CreateTemplate("CSharp", "HubFile", fileModel);
 

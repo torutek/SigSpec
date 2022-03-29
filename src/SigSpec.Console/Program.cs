@@ -40,10 +40,7 @@ namespace SigSpec
             Console.WriteLine(file);
             Console.ReadKey();
 
-            var codeGeneratorSettings = new SigSpecToCSharpGeneratorSettings
-            {
-                EnableNullable = true
-            };
+            var codeGeneratorSettings = new SigSpecToCSharpGeneratorSettings();
             var codeGenerator = new SigSpecToCSharpGenerator(codeGeneratorSettings);
             file = codeGenerator.GenerateClients(document);
 

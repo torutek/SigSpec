@@ -16,10 +16,5 @@ namespace SigSpec.CodeGeneration.CSharp
         }
 
         public CSharpGeneratorSettings CSharpGeneratorSettings => (CSharpGeneratorSettings)CodeGeneratorSettings;
-
-        /// <summary>
-        /// Whether to add #nullable enable to the top the hub file
-        /// </summary>
-        public bool EnableNullable { get; set; }
     }
 }

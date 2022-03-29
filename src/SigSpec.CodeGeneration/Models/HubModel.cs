@@ -20,6 +20,8 @@ namespace SigSpec.CodeGeneration.Models
 
         public string Name => _hub.Name;
 
+        public bool EnableNullable { get; set; }
+
         public IEnumerable<OperationModel> Operations => _hub.Operations.Select(o => new OperationModel(o.Key, o.Value, _resolver));
 
         public IEnumerable<OperationModel> Callbacks => _hub.Callbacks.Select(o => new OperationModel(o.Key, o.Value, _resolver));
