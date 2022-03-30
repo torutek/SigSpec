@@ -119,7 +119,8 @@ namespace SigSpec.Core
                     });
 
                 var contextualParameter = arg.ToContextualParameter();
-                parameter.Optional = contextualParameter.Nullability == Nullability.Nullable;
+                // if it's alredy a nullable type we don't need to add another nullability check to it
+                parameter.Optional = contextualParameter.Nullability == Nullability.Nullable && !arg.ParameterType.Name.StartsWith("Nullable");
 
                 operation.Parameters[arg.Name] = parameter;
             }
