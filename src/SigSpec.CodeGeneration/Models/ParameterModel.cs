@@ -10,6 +10,7 @@ namespace SigSpec.CodeGeneration.Models
         {
             Name = name;
             Type = resolver.Resolve(parameter.ActualTypeSchema, parameter.IsNullable(SchemaType.JsonSchema), Name);
+            Type = Type.Replace("?", ""); // remove any optional and we'll handle it ourselves (for now)
             Optional = parameter.Optional;
         }
 

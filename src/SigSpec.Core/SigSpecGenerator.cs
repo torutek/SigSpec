@@ -113,15 +113,13 @@ namespace SigSpec.Core
             foreach (var arg in method.GetParameters().Where(param => param.ParameterType != typeof(CancellationToken)))
             {
                 var parameter = generator.GenerateWithReferenceAndNullability<SigSpecParameter>(
-                    arg.ParameterType.ToContextualType(), arg.ParameterType.ToContextualType().IsNullableType, resolver, (p, s) =>
+                    arg.ParameterType.ToContextualType(), arg.ToContextualParameter().Nullability == Nullability.Nullable, resolver, (p, s) =>
                     {
                         p.Description = arg.GetXmlDocs();
                     });
 
-                var contextualParameter = arg.ToContextualParameter();
-                // if it's alredy a nullable type we don't need to add another nullability check to it
-                parameter.Optional = contextualParameter.Nullability == Nullability.Nullable && !arg.ParameterType.Name.StartsWith("Nullable");
-
+                // using this to check our nullability cos SigSpecs null checking is all kinds of whacked
+                parameter.Optional = arg.ToContextualParameter().Nullability == Nullability.Nullable;
                 operation.Parameters[arg.Name] = parameter;
             }
 

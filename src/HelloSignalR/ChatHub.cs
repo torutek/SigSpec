@@ -58,6 +58,11 @@ namespace HelloSignalR
 
             return Task.CompletedTask;
         }
+
+        public Task SendNullableGuid(Guid? guid)
+        {
+            return Task.CompletedTask;
+        }
     }
 
     public class Event
