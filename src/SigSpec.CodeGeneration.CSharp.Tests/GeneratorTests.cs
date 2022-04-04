@@ -35,8 +35,8 @@ namespace SigSpec.CodeGeneration.CSharp.Tests
 		[InlineData(typeof(HubWithGuid), "System.Guid")]
 		[InlineData(typeof(HubWithGuidOptional), "System.Guid?")]
 		[InlineData(typeof(HubWithStruct), "TestStruct")]
-		[InlineData(typeof(HubWithNullableStruct), "TestStruct")]
-		[InlineData(typeof(HubWithStructOptional), "TestStruct")]
+		[InlineData(typeof(HubWithNullableStruct), "TestStruct?")]
+		[InlineData(typeof(HubWithStructOptional), "TestStruct?")]
 		[InlineData(typeof(HubWithObject), "TestClass")]
 		[InlineData(typeof(HubWithObjectOptional), "TestClass")]
 		public async Task GenerateHubClient_GeneratesCorrectly(Type hub, string parameter)

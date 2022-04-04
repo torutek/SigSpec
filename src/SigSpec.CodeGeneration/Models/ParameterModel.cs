@@ -18,7 +18,16 @@ namespace SigSpec.CodeGeneration.Models
             }
             else
             {
-                GenerateOptional = parameter.Optional;
+                // if parameter is a value type and nullable but does not have "?" we need to add it always
+                if (parameter.IsValueType && parameter.Optional)
+                {
+                    GenerateOptional = false;
+                    Type += "?";
+                }
+                else
+                {
+                    GenerateOptional = parameter.Optional;
+                }
             }
         }
 
