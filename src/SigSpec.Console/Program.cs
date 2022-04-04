@@ -32,14 +32,13 @@ namespace SigSpec
             Console.WriteLine(json);
             Console.ReadKey();
 
-            // Typescript generation broken due to njsonschema.codegeneration update
-            // var tsCodeGeneratorSettings = new SigSpecToTypeScriptGeneratorSettings();
-            // var tsCodeGenerator = new SigSpecToTypeScriptGenerator(tsCodeGeneratorSettings);
-            // var file = tsCodeGenerator.GenerateFile(document);
-            //
-            // Console.WriteLine("\n\nGenerated SigSpec TypeScript code:");
-            // Console.WriteLine(file);
-            // Console.ReadKey();
+            var tsCodeGeneratorSettings = new SigSpecToTypeScriptGeneratorSettings();
+            var tsCodeGenerator = new SigSpecToTypeScriptGenerator(tsCodeGeneratorSettings);
+            var file = tsCodeGenerator.GenerateFile(document);
+
+            Console.WriteLine("\n\nGenerated SigSpec TypeScript code:");
+            Console.WriteLine(file);
+            Console.ReadKey();
 
             var codeGeneratorSettings = new SigSpecToCSharpGeneratorSettings
             {
@@ -49,7 +48,7 @@ namespace SigSpec
                 }
             };
             var codeGenerator = new SigSpecToCSharpGenerator(codeGeneratorSettings);
-            var file = codeGenerator.GenerateClients(document);
+            file = codeGenerator.GenerateClients(document);
 
             Console.WriteLine("\n\nGenerated SigSpec CSharp clients:");
             Console.WriteLine(file);
