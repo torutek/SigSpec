@@ -113,14 +113,15 @@ namespace SigSpec.Core
             foreach (var arg in method.GetParameters().Where(param => param.ParameterType != typeof(CancellationToken)))
             {
                 var parameter = generator.GenerateWithReferenceAndNullability<SigSpecParameter>(
-                    arg.ParameterType.ToContextualType(), arg.ParameterType.ToContextualType().IsNullableType, resolver, (p, s) =>
+                    arg.ParameterType.ToContextualType(), arg.ToContextualParameter().Nullability == Nullability.Nullable, resolver, (p, s) =>
                     {
                         p.Description = arg.GetXmlDocs();
                     });
 
-                var contextualParameter = arg.ToContextualParameter();
-                parameter.Optional = contextualParameter.Nullability == Nullability.Nullable;
-
+                // arg.ToContextualParameter().IsValueType
+                var contextArg = arg.ToContextualParameter();
+                parameter.Optional = contextArg.Nullability == Nullability.Nullable;
+                parameter.IsValueType = contextArg.IsValueType;
                 operation.Parameters[arg.Name] = parameter;
             }
 
