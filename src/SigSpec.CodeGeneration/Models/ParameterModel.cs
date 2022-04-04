@@ -10,14 +10,22 @@ namespace SigSpec.CodeGeneration.Models
         {
             Name = name;
             Type = resolver.Resolve(parameter.ActualTypeSchema, parameter.IsNullable(SchemaType.JsonSchema), Name);
-            Type = Type.Replace("?", ""); // remove any optional and we'll handle it ourselves (for now)
-            Optional = parameter.Optional;
+            var containsOptional = Type.Contains("?");
+            // if we are already have a ?, then we won't need to generate another one
+            if (containsOptional)
+            {
+                GenerateOptional = false;
+            }
+            else
+            {
+                GenerateOptional = parameter.Optional;
+            }
         }
 
         public string Name { get; }
 
         public string Type { get; }
 
-        public bool Optional { get; }
+        public bool GenerateOptional { get; }
     }
 }

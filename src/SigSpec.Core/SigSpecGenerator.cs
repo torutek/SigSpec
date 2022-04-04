@@ -118,7 +118,6 @@ namespace SigSpec.Core
                         p.Description = arg.GetXmlDocs();
                     });
 
-                // using this to check our nullability cos SigSpecs null checking is all kinds of whacked
                 parameter.Optional = arg.ToContextualParameter().Nullability == Nullability.Nullable;
                 operation.Parameters[arg.Name] = parameter;
             }

@@ -13,7 +13,10 @@ namespace SigSpec.CodeGeneration.CSharp.Tests
 
 		private readonly SigSpecToCSharpGeneratorSettings _codeGeneratorSettings = new SigSpecToCSharpGeneratorSettings
 		{
-			CSharpGeneratorSettings = { GenerateNullableReferenceTypes = false }
+			CSharpGeneratorSettings =
+			{
+				GenerateNullableReferenceTypes = false
+			}
 		};
 
 		private readonly SigSpecToCSharpGenerator _codeGenerator;
@@ -28,15 +31,14 @@ namespace SigSpec.CodeGeneration.CSharp.Tests
 		[InlineData(typeof(HubWithString), "string")]
 		[InlineData(typeof(HubWithStringOptional), "string")]
 		[InlineData(typeof(HubWithInt), "int")]
-		[InlineData(typeof(HubWithIntOptional), "int")]
+		[InlineData(typeof(HubWithIntOptional), "int?")]
 		[InlineData(typeof(HubWithGuid), "System.Guid")]
-		[InlineData(typeof(HubWithGuidOptional), "System.Guid")]
+		[InlineData(typeof(HubWithGuidOptional), "System.Guid?")]
 		[InlineData(typeof(HubWithStruct), "TestStruct")]
 		[InlineData(typeof(HubWithNullableStruct), "TestStruct")]
 		[InlineData(typeof(HubWithStructOptional), "TestStruct")]
 		[InlineData(typeof(HubWithObject), "TestClass")]
 		[InlineData(typeof(HubWithObjectOptional), "TestClass")]
-
 		public async Task GenerateHubClient_GeneratesCorrectly(Type hub, string parameter)
 		{
 			var file = await GenerateHubClient(hub);
