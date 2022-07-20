@@ -19,15 +19,22 @@
 {% endfor -%}
 
     registerCallbacks(implementation: I{{ Name }}HubCallbacks) {
+        let callbacks: { methodName: string, fn: (...args: any[]) => void }[] = [];
 {% for operation in Callbacks -%}
-        this.connection.on('{{ operation.Name }}', ({% for parameter in operation.Parameters %}{{ parameter.Name }}{% if forloop.last == false %}, {% endif %}{% endfor %}) => implementation.{{operation.MethodName}}({% for parameter in operation.Parameters %}{{ parameter.Name }}{% if forloop.last == false %}, {% endif %}{% endfor %}));
+        callbacks.push({ methodName: '{{ operation.Name }}', fn: ({% for parameter in operation.Parameters %}{{ parameter.Name }}{% if forloop.last == false %}, {% endif %}{% endfor %}) => implementation.{{operation.MethodName}}({% for parameter in operation.Parameters %}{{ parameter.Name }}{% if forloop.last == false %}, {% endif %}{% endfor %}) });
 {% endfor -%}
-    }
 
-    unregisterCallbacks(implementation: I{{ Name }}HubCallbacks) {
-{% for operation in Callbacks -%}
-        this.connection.off('{{ operation.Name }}', ({% for parameter in operation.Parameters %}{{ parameter.Name }}{% if forloop.last == false %}, {% endif %}{% endfor %}) => implementation.{{operation.MethodName}}({% for parameter in operation.Parameters %}{{ parameter.Name }}{% if forloop.last == false %}, {% endif %}{% endfor %}));
-{% endfor -%}
+        for (let i = 0; i < callbacks.length; i++) {
+			this.connection.on(callbacks[i].methodName, callbacks[i].fn);
+		}
+
+        return () => {
+			for (let i = 0; i < callbacks.length; i++) {
+				this.connection.off(callbacks[i].methodName, callbacks[i].fn);
+			}
+
+			callbacks = [];
+		};
     }
 }
 
