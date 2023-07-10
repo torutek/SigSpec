@@ -4,15 +4,15 @@
 {% for operation in Operations -%}
 
 {%     if operation.IsObservable -%}
-    {{ operation.MethodName }}({% for parameter in operation.Parameters %}{{ parameter.Name }}: {{ parameter.Type }}{% if forloop.last == false %}, {% endif %}{% endfor %}): IStreamResult<{{ operation.ReturnType.Type }}> {
+    {{ operation.MethodName }}({% for parameter in operation.Parameters %}{{ parameter.Name }}: {{ parameter.Type }}{% if parameter.GenerateOptional %} | null{% endif %}{% if forloop.last == false %}, {% endif %}{% endfor %}): IStreamResult<{{ operation.ReturnType.Type }}> {
         return this.connection.stream('{{ operation.Name }}'{% for parameter in operation.Parameters %}, {{ parameter.Name }}{% endfor %});
     }
 {%     elsif operation.HasReturnType -%}
-    {{ operation.MethodName }}({% for parameter in operation.Parameters %}{{ parameter.Name }}: {{ parameter.Type }}{% if forloop.last == false %}, {% endif %}{% endfor %}): Promise<{{ operation.ReturnType.Type }}> {
+    {{ operation.MethodName }}({% for parameter in operation.Parameters %}{{ parameter.Name }}: {{ parameter.Type }}{% if parameter.GenerateOptional %} | null{% endif %}{% if forloop.last == false %}, {% endif %}{% endfor %}): Promise<{{ operation.ReturnType.Type }}> {
         return this.connection.invoke('{{ operation.Name }}'{% for parameter in operation.Parameters %}, {{ parameter.Name }}{% endfor %});
     }
 {%     else -%}
-    {{ operation.MethodName }}({% for parameter in operation.Parameters %}{{ parameter.Name }}: {{ parameter.Type }}{% if forloop.last == false %}, {% endif %}{% endfor %}): Promise<void> {
+    {{ operation.MethodName }}({% for parameter in operation.Parameters %}{{ parameter.Name }}: {{ parameter.Type }}{% if parameter.GenerateOptional %} | null{% endif %}{% if forloop.last == false %}, {% endif %}{% endfor %}): Promise<void> {
         return this.connection.invoke('{{ operation.Name }}'{% for parameter in operation.Parameters %}, {{ parameter.Name }}{% endfor %});
     }
 {%     endif -%}
@@ -33,6 +33,6 @@
 
 export interface I{{ Name }}HubCallbacks {
 {% for operation in Callbacks -%}
-    {{ operation.MethodName }}({% for parameter in operation.Parameters %}{{ parameter.Name }}: {{ parameter.Type }}{% if forloop.last == false %}, {% endif %}{% endfor %}): void;
+    {{ operation.MethodName }}({% for parameter in operation.Parameters %}{{ parameter.Name }}: {{ parameter.Type }}{% if parameter.GenerateOptional %} | null{% endif %}{% if forloop.last == false %}, {% endif %}{% endfor %}): void;
 {% endfor -%}
 }
