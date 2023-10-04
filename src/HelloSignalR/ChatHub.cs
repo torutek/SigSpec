@@ -67,16 +67,16 @@ namespace HelloSignalR
 
     public class Event
     {
-        public string Type { get; set; }
+        public string? Type { get; set; }
     }
 
     public class Person
     {
         [JsonProperty("firstName")]
-        public string FirstName { get; set; }
+        public string? FirstName { get; set; }
 
         [JsonProperty("lastName")]
-        public string LastName { get; set; }
+        public string? LastName { get; set; }
     }
 
     public interface IChatClient

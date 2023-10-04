@@ -106,6 +106,6 @@ public struct TestStruct
 
 public class TestClass
 {
-	public string a;
+	public string? a;
 	public bool b;
 }
