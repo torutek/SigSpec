@@ -19,23 +19,23 @@ namespace HelloSignalR
                 {
                     policy.AllowAnyHeader()
                         .AllowAnyMethod()
-                        .AllowAnyOrigin()
-                        .AllowCredentials();
+                        .AllowAnyOrigin();
                 });
             });
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+			app.UseRouting();
             app.UseStaticFiles();
             app.UseCors();
 
             app.UseSigSpec();
             app.UseSigSpecUi();
 
-            app.UseSignalR(routes =>
+            app.UseEndpoints(endpoints =>
             {
-                routes.MapHub<ChatHub>("/chat");
+                endpoints.MapHub<ChatHub>("/chat");
             });
         }
     }
