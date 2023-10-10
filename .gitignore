@@ -10,3 +10,4 @@ _ReSharper*/
 *.DotSettings.user
 # Jetbrains Rider
 .idea/
+src/SigSpec.Core/Properties/launchSettings.json
