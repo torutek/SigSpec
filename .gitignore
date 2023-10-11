@@ -10,3 +10,6 @@ _ReSharper*/
 *.DotSettings.user
 # Jetbrains Rider
 .idea/
+
+# Ignore auto-generated launch settings
+/src/SigSpec.Core/Properties/launchSettings.json
