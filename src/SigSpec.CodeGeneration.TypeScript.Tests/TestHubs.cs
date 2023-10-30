@@ -1,8 +1,6 @@
-﻿using System;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.SignalR;
+﻿using Microsoft.AspNetCore.SignalR;
 
-namespace SigSpec.CodeGeneration.CSharp.Tests;
+namespace SigSpec.CodeGeneration.TypeScript.Tests;
 
 public class HubWithString : Hub<IClient>
 {

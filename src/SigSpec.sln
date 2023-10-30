@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30011.22
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HelloSignalR", "HelloSignalR\HelloSignalR.csproj", "{F953B5DD-29F5-4C92-A057-B693767E3E74}"
 EndProject
@@ -20,9 +20,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{EC91FE8E
 		..\azure-pipelines.yml = ..\azure-pipelines.yml
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SigSpec.CodeGeneration.CSharp", "SigSpec.CodeGeneration.CSharp\SigSpec.CodeGeneration.CSharp.csproj", "{FF02610E-C750-46DC-B902-D6ED2D48BF5A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SigSpec.CodeGeneration.CSharp", "SigSpec.CodeGeneration.CSharp\SigSpec.CodeGeneration.CSharp.csproj", "{FF02610E-C750-46DC-B902-D6ED2D48BF5A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SigSpec.CodeGeneration.CSharp.Tests", "SigSpec.CodeGeneration.CSharp.Tests\SigSpec.CodeGeneration.CSharp.Tests.csproj", "{B86510C2-6F78-440D-9144-90648698DA58}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SigSpec.CodeGeneration.CSharp.Tests", "SigSpec.CodeGeneration.CSharp.Tests\SigSpec.CodeGeneration.CSharp.Tests.csproj", "{B86510C2-6F78-440D-9144-90648698DA58}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SigSpec.CodeGeneration.TypeScript.Tests", "SigSpec.CodeGeneration.TypeScript.Tests\SigSpec.CodeGeneration.TypeScript.Tests.csproj", "{982E814E-0615-4C72-8BCD-D2D7A673B762}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -62,6 +64,10 @@ Global
 		{B86510C2-6F78-440D-9144-90648698DA58}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B86510C2-6F78-440D-9144-90648698DA58}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B86510C2-6F78-440D-9144-90648698DA58}.Release|Any CPU.Build.0 = Release|Any CPU
+		{982E814E-0615-4C72-8BCD-D2D7A673B762}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{982E814E-0615-4C72-8BCD-D2D7A673B762}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{982E814E-0615-4C72-8BCD-D2D7A673B762}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{982E814E-0615-4C72-8BCD-D2D7A673B762}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

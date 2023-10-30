@@ -39,6 +39,8 @@ public class NullableGeneratorTests
 	[InlineData(typeof(HubWithStructOptional), "TestStruct?")]
 	[InlineData(typeof(HubWithObject), "TestClass")]
 	[InlineData(typeof(HubWithObjectOptional), "TestClass?")]
+	[InlineData(typeof(HubWithBool), "bool")]
+	[InlineData(typeof(HubWithBoolOptional), "bool?")]
 	public async Task GenerateHubClient_WithNullablesAllowed_GeneratesCorrectly(Type hub, string parameter)
 	{
 		var file = await GenerateHubClient(hub);
