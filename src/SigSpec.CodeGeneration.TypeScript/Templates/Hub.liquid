@@ -8,7 +8,7 @@
         return this.connection.stream('{{ operation.Name }}'{% for parameter in operation.Parameters %}, {{ parameter.Name }}{% endfor %});
     }
 {%     elsif operation.HasReturnType -%}
-    {{ operation.MethodName }}({% for parameter in operation.Parameters %}{{ parameter.Name }}: {{ parameter.Type }}{% if parameter.GenerateOptional %} | null{% endif %}{% if forloop.last == false %}, {% endif %}{% endfor %}): Promise<{{ operation.ReturnType.Type }}> {
+    {{ operation.MethodName }}({% for parameter in operation.Parameters %}{{ parameter.Name }}: {{ parameter.Type }}{% if parameter.GenerateOptional %} | null{% endif %}{% if forloop.last == false %}, {% endif %}{% endfor %}): Promise<{{ operation.ReturnType.Type }}{% if operation.ReturnType.Nullable %} | null{% endif %}> {
         return this.connection.invoke('{{ operation.Name }}'{% for parameter in operation.Parameters %}, {{ parameter.Name }}{% endfor %});
     }
 {%     else -%}

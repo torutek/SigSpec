@@ -106,6 +106,22 @@ public class HubWithBoolOptional : Hub<IClient>
 	}
 }
 
+public class HubWithReturnInt : Hub<IClient>
+{
+	public Task<int> Method()
+	{
+		return Task.FromResult(0);
+	}
+}
+
+public class HubWithReturnNullableInt : Hub<IClient>
+{
+	public Task<int?> Method()
+	{
+		return Task.FromResult((int?)0);
+	}
+}
+
 
 public interface IClient
 {

@@ -48,6 +48,15 @@ public class NullableGeneratorTests
 		Assert.Contains($"method(message: {parameter})", file);
 	}
 
+	[Theory]
+	[InlineData(typeof(HubWithReturnInt), "number")]
+	[InlineData(typeof(HubWithReturnNullableInt), "number | null")]
+	public async Task GenerateHubClient_WithNullablesAllowed_GeneratesReturnTypeCorrectly(Type hub, string returnType)
+	{
+		var file = await GenerateHubClient(hub);
+		Assert.Contains($"method(): Promise<{returnType}>", file);
+	}
+
 	private async Task<string> GenerateHubClient(Type type)
 	{
 		var document = await _generator.GenerateForHubsAsync(new Dictionary<string, Type>
