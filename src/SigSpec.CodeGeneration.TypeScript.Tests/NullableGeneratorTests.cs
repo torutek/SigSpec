@@ -51,6 +51,8 @@ public class NullableGeneratorTests
 	[Theory]
 	[InlineData(typeof(HubWithReturnInt), "number")]
 	[InlineData(typeof(HubWithReturnNullableInt), "number | null")]
+	[InlineData(typeof(HubWithReturnTestClass), "TestClass")]
+	[InlineData(typeof(HubWithReturnOptionalTestClass), "TestClass | null")]
 	public async Task GenerateHubClient_WithNullablesAllowed_GeneratesReturnTypeCorrectly(Type hub, string returnType)
 	{
 		var file = await GenerateHubClient(hub);

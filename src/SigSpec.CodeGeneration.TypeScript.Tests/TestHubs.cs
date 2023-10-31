@@ -122,6 +122,22 @@ public class HubWithReturnNullableInt : Hub<IClient>
 	}
 }
 
+public class HubWithReturnTestClass : Hub<IClient>
+{
+	public Task<TestClass> Method()
+	{
+		return Task.FromResult(new TestClass());
+	}
+}
+
+public class HubWithReturnOptionalTestClass : Hub<IClient>
+{
+	public Task<TestClass?> Method()
+	{
+		return Task.FromResult((TestClass?)null);
+	}
+}
+
 
 public interface IClient
 {
