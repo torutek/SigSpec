@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection.Metadata;
 using System.Threading.Tasks;
 using SigSpec.Core;
 using Xunit;
@@ -41,10 +42,21 @@ public class NullableGeneratorTests
 	[InlineData(typeof(HubWithObjectOptional), "TestClass?")]
 	[InlineData(typeof(HubWithBool), "bool")]
 	[InlineData(typeof(HubWithBoolOptional), "bool?")]
-	public async Task GenerateHubClient_WithNullablesAllowed_GeneratesCorrectly(Type hub, string parameter)
+	public async Task GenerateHubClient_WithNullablesAllowed_GeneratesParameterCorrectly(Type hub, string parameter)
 	{
 		var file = await GenerateHubClient(hub);
 		Assert.Contains($"public Task Method({parameter} message, CancellationToken token = default(CancellationToken));", file);
+	}
+
+	[Theory]
+	[InlineData(typeof(HubWithReturnInt), "int")]
+	[InlineData(typeof(HubWithReturnNullableInt), "int?")]
+	[InlineData(typeof(HubWithReturnTestClass), "TestClass")]
+	[InlineData(typeof(HubWithReturnOptionalTestClass), "TestClass?")]
+	public async Task GenerateHubClient_WithNullablesAllowed_GeneratesReturnTypeCorrectly(Type hub, string returnType)
+	{
+		var file = await GenerateHubClient(hub);
+		Assert.Contains($"public Task<{returnType}> Method(CancellationToken token = default(CancellationToken));", file);
 	}
 
 	private async Task<string> GenerateHubClient(Type type)

@@ -4,7 +4,7 @@
 {%     if operation.IsObservable -%}
     {% comment %}For the moment don't handle streams{% endcomment %}
 {%     elsif operation.HasReturnType -%}
-        public Task<{{ operation.ReturnType.Type }}> {{ operation.Name }}({% for parameter in operation.Parameters %}{{ parameter.Type }}{% if EnableNullable and parameter.GenerateOptional == true %}?{% endif %} {{ parameter.Name }}, {% endfor %}CancellationToken token = default(CancellationToken));
+        public Task<{{ operation.ReturnType.Type }}{% if EnableNullable and operation.ReturnType.Nullable == true %}?{% endif %}> {{ operation.Name }}({% for parameter in operation.Parameters %}{{ parameter.Type }}{% if EnableNullable and parameter.GenerateOptional == true %}?{% endif %} {{ parameter.Name }}, {% endfor %}CancellationToken token = default(CancellationToken));
 
 {%     else -%}
         public Task {{ operation.Name }}({% for parameter in operation.Parameters %}{{ parameter.Type }}{% if EnableNullable and parameter.GenerateOptional == true %}?{% endif %} {{ parameter.Name }}, {% endfor %}CancellationToken token = default(CancellationToken));
@@ -63,9 +63,9 @@
 {%     if operation.IsObservable -%}
     {% comment %}For the moment don't handle streams{% endcomment %}
 {%     elsif operation.HasReturnType -%}
-        public async Task<{{ operation.ReturnType.Type }}> {{ operation.Name }}({% for parameter in operation.Parameters %}{{ parameter.Type }}{% if EnableNullable and parameter.GenerateOptional == true %}?{% endif %} {{ parameter.Name }}, {% endfor %}CancellationToken token = default(CancellationToken))
+        public async Task<{{ operation.ReturnType.Type }}{% if EnableNullable and operation.ReturnType.Nullable == true %}?{% endif %}> {{ operation.Name }}({% for parameter in operation.Parameters %}{{ parameter.Type }}{% if EnableNullable and parameter.GenerateOptional == true %}?{% endif %} {{ parameter.Name }}, {% endfor %}CancellationToken token = default(CancellationToken))
         {
-            return await _connection.InvokeAsync<{{ operation.ReturnType.Type }}>("{{ operation.Name }}"{% for parameter in operation.Parameters %}, {{ parameter.Name }}{% endfor %}, token);
+            return await _connection.InvokeAsync<{{ operation.ReturnType.Type }}{% if EnableNullable and operation.ReturnType.Nullable == true %}?{% endif %}>("{{ operation.Name }}"{% for parameter in operation.Parameters %}, {{ parameter.Name }}{% endfor %}, token);
         }
 
 {%     else -%}
