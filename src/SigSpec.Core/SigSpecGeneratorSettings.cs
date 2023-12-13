@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
 using NJsonSchema.Generation;
 
 namespace SigSpec.Core
@@ -10,7 +9,7 @@ namespace SigSpec.Core
         {
             SerializerSettings = new JsonSerializerSettings()
             {
-                ContractResolver = new CamelCasePropertyNamesContractResolver()
+                ContractResolver = new UnsharedCamelCasePropertyNamesContractResolver()
             };
         }
     }

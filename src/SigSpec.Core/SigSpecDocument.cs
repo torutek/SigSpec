@@ -13,7 +13,7 @@ namespace SigSpec.Core
     {
         private static Lazy<JsonSerializerSettings> _serializerSettings = new Lazy<JsonSerializerSettings>(() => new JsonSerializerSettings
         {
-            ContractResolver = new CamelCasePropertyNamesContractResolver(),
+            ContractResolver = new UnsharedCamelCasePropertyNamesContractResolver(),
             Converters = new List<JsonConverter> { new StringEnumConverter() }
         });
 
