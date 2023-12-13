@@ -9,15 +9,15 @@ namespace SigSpec.Core;
 /// <seealso cref="CamelCasePropertyNamesContractResolver" />
 public class UnsharedCamelCasePropertyNamesContractResolver : DefaultContractResolver
 {
-	/// <summary>
-	/// Initializes a new instance of the <see cref="CamelCasePropertyNamesContractResolver"/> class.
-	/// </summary>
-	public UnsharedCamelCasePropertyNamesContractResolver()
-	{
-		NamingStrategy = new CamelCaseNamingStrategy
-		{
-			ProcessDictionaryKeys = true,
-			OverrideSpecifiedNames = true
-		};
-	}
+    /// <summary>
+    /// Initializes a new instance of the <see cref="CamelCasePropertyNamesContractResolver"/> class.
+    /// </summary>
+    public UnsharedCamelCasePropertyNamesContractResolver()
+    {
+        NamingStrategy = new CamelCaseNamingStrategy
+        {
+            ProcessDictionaryKeys = true,
+            OverrideSpecifiedNames = true
+        };
+    }
 }
