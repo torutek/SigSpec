@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.SignalR;
-using NJsonSchema;
+﻿using NJsonSchema;
 using NJsonSchema.Generation;
 using System;
 using System.Collections.Generic;
@@ -9,6 +8,7 @@ using System.Threading;
 using System.Threading.Channels;
 using System.Threading.Tasks;
 using Namotion.Reflection;
+using Microsoft.AspNetCore.SignalR;
 
 namespace SigSpec.Core
 {

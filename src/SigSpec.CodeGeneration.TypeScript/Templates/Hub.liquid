@@ -1,5 +1,5 @@
 ﻿export class {{ Name }}Hub {
-    constructor(private connection: HubConnection) {
+    constructor(private connection: HubConnection, private onBeforeSend?: (methodName: string, ...args: any[]) => void) {
     }
 {% for operation in Operations -%}
 
@@ -9,10 +9,12 @@
     }
 {%     elsif operation.HasReturnType -%}
     {{ operation.MethodName }}({% for parameter in operation.Parameters %}{{ parameter.Name }}: {{ parameter.Type }}{% if parameter.GenerateOptional %} | null{% endif %}{% if forloop.last == false %}, {% endif %}{% endfor %}): Promise<{{ operation.ReturnType.Type }}{% if operation.ReturnType.Nullable %} | null{% endif %}> {
+		this.onBeforeSend?.('{{ operation.Name }}'{% for parameter in operation.Parameters %}, {{ parameter.Name }}{% endfor %});
         return this.connection.invoke('{{ operation.Name }}'{% for parameter in operation.Parameters %}, {{ parameter.Name }}{% endfor %});
     }
 {%     else -%}
     {{ operation.MethodName }}({% for parameter in operation.Parameters %}{{ parameter.Name }}: {{ parameter.Type }}{% if parameter.GenerateOptional %} | null{% endif %}{% if forloop.last == false %}, {% endif %}{% endfor %}): Promise<void> {
+		this.onBeforeSend?.('{{ operation.Name }}'{% for parameter in operation.Parameters %}, {{ parameter.Name }}{% endfor %});
         return this.connection.invoke('{{ operation.Name }}'{% for parameter in operation.Parameters %}, {{ parameter.Name }}{% endfor %});
     }
 {%     endif -%}
