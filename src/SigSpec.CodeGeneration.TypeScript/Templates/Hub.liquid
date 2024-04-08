@@ -1,4 +1,5 @@
 ﻿export class {{ Name }}Hub {
+	// @ts-ignore
     constructor(private connection: HubConnection, private onBeforeSend?: (methodName: string, ...args: any[]) => void) {
     }
 {% for operation in Operations -%}
