@@ -1,17 +1,17 @@
-﻿using Newtonsoft.Json;
+﻿using System;
+using System.Collections.Generic;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Serialization;
 using NJsonSchema;
-using NJsonSchema.Converters;
-using System;
-using System.Collections.Generic;
+using NJsonSchema.NewtonsoftJson.Converters;
 
 namespace SigSpec.Core
 {
     [JsonConverter(typeof(JsonReferenceConverter))]
     public class SigSpecDocument
     {
-        private static Lazy<JsonSerializerSettings> _serializerSettings = new Lazy<JsonSerializerSettings>(() => new JsonSerializerSettings
+        private static readonly Lazy<JsonSerializerSettings> _serializerSettings = new Lazy<JsonSerializerSettings>(() => new JsonSerializerSettings
         {
             ContractResolver = new UnsharedCamelCasePropertyNamesContractResolver(),
             Converters = new List<JsonConverter> { new StringEnumConverter() }
