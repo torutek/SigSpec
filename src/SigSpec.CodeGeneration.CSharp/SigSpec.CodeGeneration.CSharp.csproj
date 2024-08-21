@@ -26,8 +26,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="njsonschema.codegeneration" Version="11.0.0" />
-    <PackageReference Include="njsonschema.codegeneration.csharp" Version="11.0.0" />
+    <PackageReference Include="njsonschema.codegeneration" Version="11.0.2" />
+    <PackageReference Include="njsonschema.codegeneration.csharp" Version="11.0.2" />
   </ItemGroup>
 
   <ItemGroup>
