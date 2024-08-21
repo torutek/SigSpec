@@ -1,20 +1,20 @@
-﻿using Newtonsoft.Json;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace SigSpec.Core
 {
     public class SigSpecHub
     {
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string Name { get; set; }
 
-        [JsonProperty("description")]
+        [JsonPropertyName("description")]
         public string Description { get; set; }
 
-        [JsonProperty("operations")]
+        [JsonPropertyName("operations")]
         public IDictionary<string, SigSpecOperation> Operations { get; } = new Dictionary<string, SigSpecOperation>();
 
-        [JsonProperty("callbacks")]
+        [JsonPropertyName("callbacks")]
         public IDictionary<string, SigSpecOperation> Callbacks { get; } = new Dictionary<string, SigSpecOperation>();
     }
 }

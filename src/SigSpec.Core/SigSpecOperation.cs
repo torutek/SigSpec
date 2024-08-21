@@ -1,22 +1,22 @@
-﻿using Newtonsoft.Json;
-using NJsonSchema;
-using System.Collections.Generic;
-using System;
+﻿using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace SigSpec.Core
 {
     public class SigSpecOperation
     {
-        [JsonProperty("description")]
+        [JsonPropertyName("description")]
         public string Description { get; set; }
 
-        [JsonProperty("parameters")]
+        [JsonPropertyName("parameters")]
         public IDictionary<string, SigSpecParameter> Parameters { get; } = new Dictionary<string, SigSpecParameter>();
 
-        [JsonProperty("returntype", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonPropertyName("returntype")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public SigSpecReturnType ReturnType { get; set; }
 
-        [JsonProperty("type", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        [JsonPropertyName("type")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public SigSpecOperationType Type { get; set; }
     }
 }

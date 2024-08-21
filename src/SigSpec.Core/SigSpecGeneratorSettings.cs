@@ -1,16 +1,13 @@
-﻿using Newtonsoft.Json;
-using NJsonSchema.NewtonsoftJson.Generation;
+﻿using System.Text.Json;
+using NJsonSchema.Generation;
 
 namespace SigSpec.Core
 {
-    public class SigSpecGeneratorSettings : NewtonsoftJsonSchemaGeneratorSettings
+    public class SigSpecGeneratorSettings : SystemTextJsonSchemaGeneratorSettings
     {
         public SigSpecGeneratorSettings()
         {
-            SerializerSettings = new JsonSerializerSettings()
-            {
-                ContractResolver = new UnsharedCamelCasePropertyNamesContractResolver()
-            };
+            SerializerOptions = new(JsonSerializerDefaults.Web);
         }
     }
 }
