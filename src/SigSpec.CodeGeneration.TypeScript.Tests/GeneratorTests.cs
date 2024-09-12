@@ -12,12 +12,12 @@ namespace SigSpec.CodeGeneration.TypeScript.Tests
 		private readonly SigSpecToTypeScriptGeneratorSettings _codeGeneratorSettings = new()
 		{
 			TypeScriptGeneratorSettings =
-		{
-			TypeStyle = TypeScriptTypeStyle.Class,
-			NullValue = TypeScriptNullValue.Null,
-			MarkOptionalProperties = false,
-			ConvertConstructorInterfaceData = true
-		}
+			{
+				TypeStyle = TypeScriptTypeStyle.Class,
+				NullValue = TypeScriptNullValue.Null,
+				MarkOptionalProperties = false,
+				ConvertConstructorInterfaceData = true
+			}
 		};
 
 		private readonly SigSpecToTypeScriptGenerator _codeGenerator;
@@ -38,9 +38,9 @@ namespace SigSpec.CodeGeneration.TypeScript.Tests
 		private async Task<string> GenerateHubClient(Type type)
 		{
 			var document = await _generator.GenerateForHubsAsync(new Dictionary<string, Type>
-		{
-			{ "Hub", type }
-		});
+			{
+				{ "Hub", type }
+			});
 			return _codeGenerator.GenerateFile(document);
 		}
 	}
