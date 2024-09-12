@@ -76,6 +76,7 @@ namespace SigSpec.Core
             {
                 var returnsChannelReader = m.ReturnType.IsGenericType && m.ReturnType.GetGenericTypeDefinition() == typeof(ChannelReader<>);
                 return
+                    !m.IsStatic &&
                     m.IsPublic &&
                     m.IsSpecialName == false &&
                     m.DeclaringType != typeof(Hub) &&
@@ -92,6 +93,7 @@ namespace SigSpec.Core
             {
                 var returnsChannelReader = m.ReturnType.IsGenericType && m.ReturnType.GetGenericTypeDefinition() == typeof(ChannelReader<>);
                 return
+                    !m.IsStatic &&
                     m.IsPublic &&
                     m.IsSpecialName == false &&
                     m.DeclaringType != typeof(Hub) &&
