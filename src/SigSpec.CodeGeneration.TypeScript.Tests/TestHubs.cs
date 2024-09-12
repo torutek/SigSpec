@@ -138,6 +138,13 @@ public class HubWithReturnOptionalTestClass : Hub<IClient>
 	}
 }
 
+public class HubWithStaticMethodTestClass : Hub<IClient>
+{
+	public static Task Method()
+	{
+		return Task.CompletedTask;
+	}
+}
 
 public interface IClient
 {

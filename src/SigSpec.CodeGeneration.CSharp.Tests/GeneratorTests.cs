@@ -47,6 +47,13 @@ namespace SigSpec.CodeGeneration.CSharp.Tests
 			Assert.Contains($"public Task Method({parameter} message, CancellationToken token = default(CancellationToken));", file);
 		}
 
+		[Fact]
+		public async Task GenerateHubClient_IgnoresStaticMethods()
+		{
+			var file = await GenerateHubClient(typeof(HubWithStaticMethodTestClass));
+			Assert.DoesNotContain($"public static Task Method();", file);
+		}
+
 		private async Task<string> GenerateHubClient(Type type)
 		{
 			var document = await _generator.GenerateForHubsAsync(new Dictionary<string, Type>
