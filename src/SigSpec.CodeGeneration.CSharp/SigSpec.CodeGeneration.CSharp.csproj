@@ -1,5 +1,4 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
   </PropertyGroup>
@@ -14,25 +13,20 @@
     <RepositoryType>git</RepositoryType>
     <PackageTags>SignalR Specification CodeGeneration CSharp</PackageTags>
   </PropertyGroup>
-
   <ItemGroup>
     <None Remove="Templates\Hub.liquid" />
     <None Remove="Templates\HubFile.liquid" />
   </ItemGroup>
-
   <ItemGroup>
     <EmbeddedResource Include="Templates\HubFile.liquid" />
     <EmbeddedResource Include="Templates\Hub.liquid" />
   </ItemGroup>
-
   <ItemGroup>
-    <PackageReference Include="njsonschema.codegeneration" Version="11.0.0" />
-    <PackageReference Include="njsonschema.codegeneration.csharp" Version="11.0.0" />
+    <PackageReference Include="njsonschema.codegeneration" />
+    <PackageReference Include="njsonschema.codegeneration.csharp" />
   </ItemGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\SigSpec.CodeGeneration\SigSpec.CodeGeneration.csproj" />
     <ProjectReference Include="..\SigSpec.Core\SigSpec.Core.csproj" />
   </ItemGroup>
-
 </Project>
