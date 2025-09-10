@@ -1,15 +1,16 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-  <TargetFramework>net8.0</TargetFramework>
-  <PackageId>Torutek.SigSpec.CodeGeneration.TypeScript</PackageId>
+    <TargetFramework>net8.0</TargetFramework>
+    <PackageId>Torutek.SigSpec.CodeGeneration.TypeScript</PackageId>
   </PropertyGroup>
   <PropertyGroup>
     <Owners>torutek</Owners>
     <Authors>torutek, Rico Suter</Authors>
-    <Description>Specification and code generator for SignalR Core.</Description>
+    <Description>Code generator for SignalR Core.</Description>
     <Version>0.3.0</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/torutek/SigSpec</PackageProjectUrl>
     <RepositoryUrl>https://github.com/torutek/SigSpec.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
