@@ -27,3 +27,6 @@ jobs:
       with:
         name: nuget-packages
         path: ./artifacts/*.nupkg
+    - name: Push to NuGet
+      run: dotnet nuget push ./artifacts/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
+      if: github.ref == 'refs/heads/torutek'
