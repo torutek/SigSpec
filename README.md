@@ -1,7 +1,7 @@
 # SigSpec for SignalR Core
 
-[![TypeScript CodeGen](https://img.shields.io/nuget/v/Torutek.SigSpec.CodeGeneration.TypeScript.svg?label=Torutek.SigSpec.CodeGeneration.Typescript)](https://www.nuget.org/packages/Torutek.SigSpec.CodeGeneration.TypeScript)
-[![CSharp CodeGen](https://img.shields.io/nuget/v/Torutek.SigSpec.CodeGeneration.CSharp.svg?label=Torutek.SigSpec.CodeGeneration.CSharp)](https://www.nuget.org/packages/Torutek.SigSpec.CodeGeneration.CSharp)
+[![TypeScript CodeGen](https://img.shields.io/nuget/v/TorutekGithub.SigSpec.CodeGeneration.TypeScript.svg?label=TorutekGithub.SigSpec.CodeGeneration.Typescript)](https://www.nuget.org/packages/TorutekGithub.SigSpec.CodeGeneration.TypeScript)
+[![CSharp CodeGen](https://img.shields.io/nuget/v/TorutekGithub.SigSpec.CodeGeneration.CSharp.svg?label=TorutekGithub.SigSpec.CodeGeneration.CSharp)](https://www.nuget.org/packages/TorutekGithub.SigSpec.CodeGeneration.CSharp)
 
 Code generator for [SignalR Core](https://learn.microsoft.com/en-us/aspnet/core/signalr/introduction).
 
