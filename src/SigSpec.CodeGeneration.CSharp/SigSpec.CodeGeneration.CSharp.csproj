@@ -22,8 +22,8 @@
     <EmbeddedResource Include="Templates\Hub.liquid" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="njsonschema.codegeneration" />
-    <PackageReference Include="njsonschema.codegeneration.csharp" />
+    <PackageReference Include="NJsonSchema.CodeGeneration" />
+    <PackageReference Include="NJsonSchema.CodeGeneration.CSharp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SigSpec.CodeGeneration\SigSpec.CodeGeneration.csproj" />

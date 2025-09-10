@@ -1,0 +1,27 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+    - name: Restore
+      run: dotnet restore src/SigSpec.sln
+    - name: Test
+      run: dotnet test --no-restore -c Release src/SigSpec.sln
+    - name: Pack
+      run: dotnet pack --no-restore -c Release -o ./artifacts src/SigSpec.sln
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: nuget-packages
+        path: ./artifacts/*.nupkg

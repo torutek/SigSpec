@@ -3,10 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HelloSignalR", "HelloSignalR\HelloSignalR.csproj", "{F953B5DD-29F5-4C92-A057-B693767E3E74}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SigSpec.Console", "SigSpec.Console\SigSpec.Console.csproj", "{014ED042-7DFB-4BE4-8B33-1EE003FF4695}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SigSpec.CodeGeneration", "SigSpec.CodeGeneration\SigSpec.CodeGeneration.csproj", "{F8DEC9C8-173C-444E-BD77-36495F8DF5C3}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SigSpec.CodeGeneration.TypeScript", "SigSpec.CodeGeneration.TypeScript\SigSpec.CodeGeneration.TypeScript.csproj", "{85EC367A-63E2-4BB8-91AA-75DE422B3AC0}"
@@ -30,14 +26,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F953B5DD-29F5-4C92-A057-B693767E3E74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F953B5DD-29F5-4C92-A057-B693767E3E74}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F953B5DD-29F5-4C92-A057-B693767E3E74}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F953B5DD-29F5-4C92-A057-B693767E3E74}.Release|Any CPU.Build.0 = Release|Any CPU
-		{014ED042-7DFB-4BE4-8B33-1EE003FF4695}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{014ED042-7DFB-4BE4-8B33-1EE003FF4695}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{014ED042-7DFB-4BE4-8B33-1EE003FF4695}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{014ED042-7DFB-4BE4-8B33-1EE003FF4695}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F8DEC9C8-173C-444E-BD77-36495F8DF5C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F8DEC9C8-173C-444E-BD77-36495F8DF5C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F8DEC9C8-173C-444E-BD77-36495F8DF5C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
