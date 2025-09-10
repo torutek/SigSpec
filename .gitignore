@@ -11,3 +11,4 @@ _ReSharper*/
 # Jetbrains Rider
 .idea/
 src/SigSpec.Core/Properties/launchSettings.json
+src/.NCrunch_SigSpec
