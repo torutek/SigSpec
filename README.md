@@ -1,11 +1,9 @@
 # SigSpec for SignalR Core
 
-TODO Update these:
-[![Azure DevOps](https://img.shields.io/azure-devops/build/rsuter/Namotion/22/master.svg)](https://dev.azure.com/rsuter/Namotion/_build?definitionId=22)
-[![Azure DevOps](https://img.shields.io/azure-devops/coverage/rsuter/Namotion/22/master.svg)](https://dev.azure.com/rsuter/Namotion/_build?definitionId=22)
-[![Nuget](https://img.shields.io/nuget/v/SigSpec.Core.svg)](https://www.nuget.org/packages?q=sigspec)
+[![TypeScript CodeGen](https://img.shields.io/nuget/v/Torutek.SigSpec.CodeGeneration.TypeScript.svg?label=Torutek.SigSpec.CodeGeneration.Typescript)](https://www.nuget.org/packages/Torutek.SigSpec.CodeGeneration.TypeScript)
+[![CSharp CodeGen](https://img.shields.io/nuget/v/Torutek.SigSpec.CodeGeneration.CSharp.svg?label=Torutek.SigSpec.CodeGeneration.CSharp)](https://www.nuget.org/packages/Torutek.SigSpec.CodeGeneration.CSharp)
 
-**Experimental API endpoint specification** and code generator for [SignalR Core](https://github.com/aspnet/SignalR).
+Code generator for [SignalR Core](https://learn.microsoft.com/en-us/aspnet/core/signalr/introduction).
 
 Based on [NJsonSchema](http://njsonschema.org) (see also: [NSwag](http://nswag.org)).
 
