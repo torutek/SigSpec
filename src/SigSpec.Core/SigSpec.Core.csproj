@@ -3,13 +3,14 @@
     <TargetFramework>net8.0</TargetFramework>
   </PropertyGroup>
   <PropertyGroup>
-    <Owners>Rico Suter</Owners>
-    <Authors>Rico Suter</Authors>
+    <Owners>torutek</Owners>
+    <Authors>torutek, Rico Suter</Authors>
     <Description>Specification and code generator for SignalR Core.</Description>
-    <Version>0.2.1</Version>
+    <Version>0.3.0</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageProjectUrl>https://github.com/RicoSuter/SigSpec</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/RicoSuter/SigSpec.git</RepositoryUrl>
+    <IsPackable>true</IsPackable>
+    <PackageProjectUrl>https://github.com/torutek/SigSpec</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/torutek/SigSpec.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>SignalR Specification CodeGeneration</PackageTags>
     <OutputType>Library</OutputType>
