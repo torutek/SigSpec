@@ -1,6 +1,7 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+  <TargetFramework>net8.0</TargetFramework>
+  <PackageId>Torutek.SigSpec.CodeGeneration.CSharp</PackageId>
   </PropertyGroup>
   <PropertyGroup>
     <Owners>torutek</Owners>
@@ -8,11 +9,15 @@
     <Version>0.3.0</Version>
     <Description>Specification and code generator for SignalR Core.</Description>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageProjectUrl>https://github.com/torutek/SigSpec</PackageProjectUrl>
     <RepositoryUrl>https://github.com/torutek/SigSpec.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>SignalR Specification CodeGeneration CSharp</PackageTags>
   </PropertyGroup>
+  <ItemGroup>
+    <None Include="..\..\README.md" Pack="true" PackagePath="" Link="README.md" />
+  </ItemGroup>
   <ItemGroup>
     <None Remove="Templates\Hub.liquid" />
     <None Remove="Templates\HubFile.liquid" />

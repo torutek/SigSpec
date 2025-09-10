@@ -9,11 +9,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SigSpec.CodeGeneration.Type
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SigSpec.Core", "SigSpec.Core\SigSpec.Core.csproj", "{AC85889F-7113-4C2E-B058-2CB7F02426F1}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{EC91FE8E-2EE3-479D-A4B2-342F7638060B}"
-	ProjectSection(SolutionItems) = preProject
-		..\azure-pipelines.yml = ..\azure-pipelines.yml
-	EndProjectSection
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SigSpec.CodeGeneration.CSharp", "SigSpec.CodeGeneration.CSharp\SigSpec.CodeGeneration.CSharp.csproj", "{FF02610E-C750-46DC-B902-D6ED2D48BF5A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SigSpec.CodeGeneration.CSharp.Tests", "SigSpec.CodeGeneration.CSharp.Tests\SigSpec.CodeGeneration.CSharp.Tests.csproj", "{B86510C2-6F78-440D-9144-90648698DA58}"
