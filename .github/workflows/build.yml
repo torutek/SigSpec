@@ -16,6 +16,8 @@ jobs:
       uses: actions/checkout@v4
     - name: Restore
       run: dotnet restore src/SigSpec.sln
+    - name: Build
+      run: dotnet build --no-restore -c Release src/SigSpec.sln
     - name: Test
       run: dotnet test --no-restore -c Release src/SigSpec.sln
     - name: Pack
