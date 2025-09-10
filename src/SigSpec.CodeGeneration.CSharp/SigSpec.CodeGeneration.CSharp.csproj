@@ -1,7 +1,7 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <PackageId>Torutek.SigSpec.CodeGeneration.CSharp</PackageId>
+    <PackageId>TorutekGithub.SigSpec.CodeGeneration.CSharp</PackageId>
   </PropertyGroup>
   <PropertyGroup>
     <Owners>torutek</Owners>
