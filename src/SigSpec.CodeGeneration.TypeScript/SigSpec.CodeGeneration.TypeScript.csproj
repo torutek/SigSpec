@@ -7,7 +7,7 @@
     <Owners>torutek</Owners>
     <Authors>torutek, Rico Suter</Authors>
     <Description>Code generator for SignalR Core.</Description>
-    <Version>0.3.0</Version>
+    <Version>0.3.1</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
